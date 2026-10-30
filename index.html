@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#10121a" />
+  <meta name="description" content="Challenge a friend to Color Clash, a live multiplayer reaction game." />
+  <title>Color Clash — Beat the flash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">✳</span> COLOR CLASH</a><span class="live-tag"><span class="live-dot"></span> LIVE MULTIPLAYER</span></header>
+    <section class="intro"><div class="eyebrow">THE QUICK-FIRE DUEL</div><h1>Beat the <span>flash.</span></h1><p>Same room, different screens. First to spot the right color takes the point.</p></section>
+    <section id="lobby" class="panel lobby">
+      <div class="lobby-copy"><div class="eyebrow">HOW TO PLAY</div><h2>Eyes up.<br/>Thumbs ready.</h2><ol class="rules"><li><b>01</b><span>Invite a friend with your room code.</span></li><li><b>02</b><span>Wait for the color name to flash.</span></li><li><b>03</b><span>Tap the matching tile before your rival.</span></li><li><b>04</b><span>First to 5 points wins. Wrong taps give your rival a point.</span></li></ol><div class="note">Two players · 10-second rounds · A tie goes to sudden death</div></div>
+      <div class="lobby-form"><div class="field-label">YOUR NAME</div><input id="nameInput" maxlength="16" placeholder="e.g. Alex" autocomplete="nickname"/><button id="createBtn" class="primary">Create a room <span>↗</span></button><div class="divider"><span>OR JOIN A FRIEND</span></div><div class="join-row"><input id="roomInput" maxlength="4" placeholder="ROOM CODE" autocomplete="off"/><button id="joinBtn" class="secondary">Join</button></div><div id="lobbyStatus" class="status" aria-live="polite"></div></div>
+    </section>
+    <section id="game" class="panel game hidden">
+      <div class="game-top"><div><div class="eyebrow">ROOM <span id="roomCode">----</span></div><button id="copyLink" class="copy-link">Copy invite link ↗</button></div><div class="round-pill">ROUND <span id="roundNum">0</span><span class="round-slash">/</span> 10</div></div>
+      <div class="scoreboard"><div id="player0" class="player-card"><span class="player-icon">◉</span><div><div class="player-name">Waiting...</div><div class="player-meta">YOU</div></div><strong class="player-score">0</strong></div><div class="score-dash">VS</div><div id="player1" class="player-card rival"><span class="player-icon">◉</span><div><div class="player-name">Waiting...</div><div class="player-meta">RIVAL</div></div><strong class="player-score">0</strong></div></div>
+      <div class="arena"><div id="arenaHint" class="arena-hint">WAITING FOR YOUR RIVAL</div><div id="countdown" class="countdown hidden"></div><div id="prompt" class="prompt">Invite a friend<br/>to start the duel</div><div id="result" class="result"></div><div id="timer" class="timer"><span></span></div></div>
+      <div id="tiles" class="tiles"></div>
+      <div class="game-footer"><span>First to 5 wins</span><span>Wrong tap = point to rival</span></div>
+      <div id="gameStatus" class="status" aria-live="polite"></div>
+      <div id="endActions" class="end-actions hidden"><button id="rematchBtn" class="primary">Play again ↗</button><button id="leaveBtn" class="secondary">Leave room</button></div>
+    </section>
+    <footer><span>MADE FOR FRIENDLY RIVALRIES</span><span>COLOR CLASH <span class="footer-star">✳</span> 2026</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="client.js"></script>
+</body>
+</html>
